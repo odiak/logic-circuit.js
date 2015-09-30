@@ -1,0 +1,15 @@
+{
+  "name": "logic-circuit",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:espower-babel/guess test/**/*.js"
+  },
+  "author": "odiak",
+  "devDependencies": {
+    "espower-babel": "^3.3.0",
+    "mocha": "^2.3.3",
+    "power-assert": "^1.0.1"
+  }
+}
