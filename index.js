@@ -171,7 +171,7 @@ export class Not extends Node {
   }
 
   calculateOutputValues () {
-    this.outputPinAt(0).setValue(logicalNot(this.inputPinAt(0)));
+    this.outputPinAt(0).setValue(logicalNot(this.inputPinAt(0).value));
   }
 }
 
