@@ -100,7 +100,7 @@ export class Pin {
 }
 
 export class Node {
-  constructor (inputs = 1, outputs = 1) {
+  constructor (inputs = 1, outputs = 1, autoCalculate = true) {
     this.inputs = inputs;
     this.outputs = outputs;
 
@@ -108,9 +108,11 @@ export class Node {
     repeat(inputs, () => {
       let pin = new Pin;
       this.inputPins.push(pin);
-      pin.addChangeListener(() => {
-        this.calculateOutputValues();
-      });
+      if (autoCalculate) {
+        pin.addChangeListener(() => {
+          this.calculateOutputValues();
+        });
+      }
     });
 
     this.outputPins = [];
@@ -176,7 +178,7 @@ export class Not extends Node {
 
 export class Nand extends Node {
   constructor (n) {
-    super(n, 1);
+    super(n, 1, false);
 
     let and = new And(n);
     let not = new Not;
@@ -192,7 +194,7 @@ export class Nand extends Node {
 
 export class Nor extends Node {
   constructor (n) {
-    super(n, 1);
+    super(n, 1, false);
 
     let or = new Or(n);
     let not = new Not;
