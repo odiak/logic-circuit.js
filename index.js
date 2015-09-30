@@ -12,17 +12,17 @@ function repeat (n, callback, thisArg) {
   }
 }
 
-function logicalAnd (a, b) {
+export function logicalAnd (a, b) {
   if (a === HIGH && b === HIGH) return HIGH;
   return LOW;
 }
 
-function logicalOr (a, b) {
+export function logicalOr (a, b) {
   if (a === HIGH || b === HIGH) return HIGH;
   return LOW;
 }
 
-function logicalNot (a) {
+export function logicalNot (a) {
   if (a === HIGH) return LOW;
   if (a === LOW) return HIGH;
   return UNKNOWN;
